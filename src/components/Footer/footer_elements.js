@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 export const FooterContainer = styled.footer`
-background-color: #101522;
+background-color: black;
 `
 
 export const FooterWrap = styled.div`
@@ -87,7 +87,7 @@ color: #fff;
 justify-self: start;
 cursor: pointer;
 text-decoration: none;
-font-size: 1.5rem;
+font-size: 1rem;
 display: flex;
 align-items: center;
 margin-bottom: 16px;

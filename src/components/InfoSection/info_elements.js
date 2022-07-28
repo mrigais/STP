@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const InfoContainer = styled.div`
 color: #fff;
 background: ${({lightBg}) => (lightBg ? '#030101' : '#fcfafb')};
-// #030101
 @media screen and (max-width: 768px) {
     padding: 100px 0;
 }
@@ -26,6 +25,22 @@ display: grid;
 grid-auto-columns: minmax(auto, 1fr);
 align-items: center;
 grid-template-areas: ${({imgStart}) => (imgStart ? `'col2 col1'` : `'col1 col2'`)};
+animation-duration: 6s;
+animation-name: slidein;
+// animation-iteration-count: infinite;
+
+
+@keyframes slidein {
+from {
+  margin-left: 100%;
+  width: 300%;
+}
+
+to {
+  margin-left: 0%;
+  width: 100%;
+}
+}
 
 @media screen and (max-width: 768px) {
     grid-template-areas: ${({imgStart})=> (imgStart ? `'col1' 'col2'` : `'col1 col1' 'col2 col2'`)}
@@ -103,3 +118,4 @@ width: 100%;
 margin: 0 0 10px 0;
 padding-right: 0;
 `
+

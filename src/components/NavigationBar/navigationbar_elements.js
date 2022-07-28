@@ -2,8 +2,9 @@ import styled from 'styled-components';
 import {Link as LinkR} from 'react-router-dom';
 import {Link as LinkS} from 'react-scroll'
 export const Nav = styled.nav`
-    background: #000;
+    // background: #000;
     // background-image: url("../images/media_logo_main.png");
+    background: ${({scrollNav}) => (scrollNav ? 'red' : 'transparent')}
     // background: linear-gradient(to right, #000000 50%, #ff0042 50%);
     height: 80px;
     margin-top: -80px;
@@ -27,20 +28,21 @@ height: 80px;
 z-index: 1;
 width: 100%;
 padding: 0 24px;
-max-width:  1100px;
+// max-width:  1100px;
 `;
 
 export const NavLogo = styled.img`
  color: #000;
+ width: 120px;
+ height: 80px;
  justify-self: flex-start;
  cursor: pointer;
  font-size: 1.5rem;
-//  display: flex;
-//  align-items: left;
-//  margin-left: 24px;
-//  font-weight: bold;
-//  text-decoration: none;
- margin-top: 10px;
+ display: flex;
+ align-items: left;
+ margin-left: 24px;
+ margin-top: 5px;
+ margin-right: 50px;
  `;
 
 
@@ -64,7 +66,7 @@ export const NavLogo = styled.img`
  align-items: center;
  list-style: none;
  text-align: center;
- margin-right: -22px;
+ margin-right: 20px;
  
  @media screen and (max-width: 768px) {
      display: none;
