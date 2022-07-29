@@ -8,7 +8,7 @@ const Services = () => {
         <ServicesH1> How Can We Help? </ServicesH1>
             <ServicesWrapper>
                 <ServicesCard>
-                    <ServicesIcon src={Icon1}/>
+                    {/* <ServicesIcon src={Icon1}/> */}
                     {/* <ServicesH2>Reduce Expenses</ServicesH2> */}
                     <ServicesP>Everyone loves a good story. It captivates your mind and leaves
 you in awe, wanting more of it.</ServicesP>

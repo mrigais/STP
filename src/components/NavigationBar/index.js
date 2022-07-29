@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {FaBars} from 'react-icons/fa'
 // import {logo} from "./media_logo_main.png";
 import LOGO from '../../images/media_logo_main.png'
+import {animateScroll as scroll } from 'react-scroll'
 import {Nav, 
     NavbarContainer, 
     NavLogo,
@@ -15,31 +16,48 @@ import {Nav,
 
 
 const NavigationBar = ({toggle}) => {
+
+    const [scrollNav, setScrollNav] = useState(false)
+    const changeNav = ()=>{
+        if(window.scrollY >= 80) {
+            setScrollNav(true);
+        }else{
+            setScrollNav(false);
+        }
+    }
+
+    useEffect(()=>{
+        window.addEventListener('scroll', changeNav);
+    }, [])
+
+    const toggleTop = ()=>{
+        scroll.scrollToTop()
+    }
   return (
     <>
-        <Nav>
+        <Nav scrollNav={scrollNav}>
             <NavbarContainer>
-                <NavLogo src={LOGO} to="/"></NavLogo>
+                <NavLogo src={LOGO} onClick={toggleTop} to="/"></NavLogo>
                 <MobileIcon onClick={toggle}>
                     <FaBars/>
                 </MobileIcon>
                     <NavMenu>
                         <NavItem>
-                            <NavLinks to="home" onClick={toggle}>Home</NavLinks>
+                            <NavLinks to="home" onClick={toggle} smooth={true} duration={500} spy={true} exact={true} offset={-80}>Home</NavLinks>
                         </NavItem>
                         <NavItem>
-                            <NavLinks to="our-work" onClick={toggle}>Our Work</NavLinks>
+                            <NavLinks to="our-work" onClick={toggle} smooth={true} duration={500} spy={true} exact={true} offset={-80}>Our Work</NavLinks>
                         </NavItem>
                         <NavItem>
-                            <NavLinks to="/about" onClick={toggle}>About Us</NavLinks>
+                            <NavLinks to="about-us" onClick={toggle} smooth={true} duration={500} spy={true} exact={true} offset={-80}>About Us</NavLinks>
                         </NavItem>
-                        <NavItem>
-                            <NavLinks to="/contact_us" onClick={toggle}>Get In Touch</NavLinks>
-                        </NavItem>
+                        {/* <NavItem>
+                            <NavLinks to= "/contact_us">Get In Touch</NavLinks>
+                        </NavItem> */}
                     </NavMenu>
-                    <NavBtn>
+                    {/* <NavBtn>
                         <NavBtnLink to="/signin" onClick={toggle}>Sign In</NavBtnLink>
-                    </NavBtn>
+                    </NavBtn> */}
              </NavbarContainer>
         </Nav>
     </>
